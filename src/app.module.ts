@@ -4,13 +4,13 @@ import { AppService } from './app.service';
 import { HubspotModule } from './modules/hubspot/hubspot.module';
 import { ContactsModule } from './modules/contacts/contacts.module';
 import { ConfigModule } from '@nestjs/config';
-import { configuration } from './config';
+import configuration from './config/configuration';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      load: [() => configuration],
+      load: [configuration],
     }),
     HubspotModule,
     ContactsModule,

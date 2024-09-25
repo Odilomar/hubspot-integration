@@ -1,11 +1,18 @@
+import { config } from 'dotenv';
+import { env } from 'process';
+
 type Configuration = {
   hubspot: {
     accessToken: string;
   };
 };
 
-export const configuration: Configuration = {
-  hubspot: {
-    accessToken: process.env.HUBSPOT_ACCESS_TOKEN,
-  },
+export default (): Configuration => {
+  config();
+
+  return {
+    hubspot: {
+      accessToken: env.HUBSPOT_ACCESS_TOKEN,
+    },
+  };
 };

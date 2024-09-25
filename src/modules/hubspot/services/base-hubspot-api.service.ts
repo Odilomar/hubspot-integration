@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { Client as HubspotApiClient } from '@hubspot/api-client';
-import { configuration } from '../../../config';
+import configuration from '../../../config/configuration';
 
 const {
   hubspot: { accessToken },
-} = configuration;
+} = configuration();
 @Injectable()
 export class BaseHubspotApiService {
   hubspotApiClient: HubspotApiClient;
