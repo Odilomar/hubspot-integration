@@ -1,5 +1,7 @@
 import { ApiPropertyOptional } from '@nestjs/swagger';
+import { Transform } from 'class-transformer';
 import { IsNumber, IsOptional, IsString } from 'class-validator';
+import { transformToNumber } from '../../../shared';
 
 export class GetContactsDto {
   @ApiPropertyOptional({
@@ -8,7 +10,8 @@ export class GetContactsDto {
   })
   @IsNumber()
   @IsOptional()
-  limit: number;
+  @Transform(transformToNumber)
+  limit?: number;
 
   @ApiPropertyOptional({
     description:
@@ -17,5 +20,5 @@ export class GetContactsDto {
   })
   @IsString()
   @IsOptional()
-  after: string;
+  after?: string;
 }
