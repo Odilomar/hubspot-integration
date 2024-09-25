@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import { BaseHubspotApiService, ContactsApiServiceService } from './services';
+import { BaseHubspotApiService, ContactsHubspotApiService } from './services';
 
 @Module({
-  providers: [BaseHubspotApiService, ContactsApiServiceService],
-  exports: [ContactsApiServiceService],
+  providers: [BaseHubspotApiService, ContactsHubspotApiService],
+  exports: [ContactsHubspotApiService],
 })
 export class HubspotModule {}

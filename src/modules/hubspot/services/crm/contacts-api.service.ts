@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { BaseHubspotApiService } from '../base-hubspot-api.service';
 
 @Injectable()
-export class ContactsApiServiceService extends BaseHubspotApiService {
+export class ContactsHubspotApiService extends BaseHubspotApiService {
   constructor() {
     super();
   }

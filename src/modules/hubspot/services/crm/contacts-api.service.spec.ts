@@ -1,15 +1,15 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ContactsApiServiceService } from './contacts-api.service';
+import { ContactsHubspotApiService } from './contacts-api.service';
 
-describe('ContactsApiServiceService', () => {
-  let service: ContactsApiServiceService;
+describe('ContactsHubspotApiService', () => {
+  let service: ContactsHubspotApiService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [ContactsApiServiceService],
+      providers: [ContactsHubspotApiService],
     }).compile();
 
-    service = module.get<ContactsApiServiceService>(ContactsApiServiceService);
+    service = module.get<ContactsHubspotApiService>(ContactsHubspotApiService);
   });
 
   it('should be defined', () => {
