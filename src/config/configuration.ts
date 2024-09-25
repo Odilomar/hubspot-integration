@@ -12,7 +12,7 @@ export default (): Configuration => {
 
   return {
     hubspot: {
-      accessToken: env.HUBSPOT_ACCESS_TOKEN,
+      accessToken: env.HUBSPOT_API_ACCESS_TOKEN,
     },
   };
 };
