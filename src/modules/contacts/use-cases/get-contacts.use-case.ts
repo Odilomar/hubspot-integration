@@ -3,7 +3,7 @@ import { ContactsHubspotApiService } from '../../hubspot/services';
 import { GetContactsDto } from '../dtos';
 
 @Injectable()
-export class GetContactsUseCaseService {
+export class GetContactsUseCase {
   constructor(
     private readonly contactsHubspotApiService: ContactsHubspotApiService,
   ) {}

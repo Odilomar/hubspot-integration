@@ -1,15 +1,15 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { GetContactsUseCaseService } from './get-contacts.use-case';
+import { GetContactsUseCase } from './get-contacts.use-case';
 
-describe('GetContactsUseCaseService', () => {
-  let service: GetContactsUseCaseService;
+describe('GetContactsUseCase', () => {
+  let service: GetContactsUseCase;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [GetContactsUseCaseService],
+      providers: [GetContactsUseCase],
     }).compile();
 
-    service = module.get<GetContactsUseCaseService>(GetContactsUseCaseService);
+    service = module.get<GetContactsUseCase>(GetContactsUseCase);
   });
 
   it('should be defined', () => {
