@@ -11,3 +11,7 @@ export interface CreateContactApi {
   company: string;
   website: string;
 }
+
+export interface CreateContactsInBatchApi {
+  properties: CreateContactApi;
+}
