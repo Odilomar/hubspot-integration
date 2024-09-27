@@ -5,6 +5,7 @@ import { HubspotModule } from './modules/hubspot/hubspot.module';
 import { ContactsModule } from './modules/contacts/contacts.module';
 import { ConfigModule } from '@nestjs/config';
 import configuration from './config/configuration';
+import { GoogleModule } from './modules/google/google.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import configuration from './config/configuration';
       load: [configuration],
     }),
     HubspotModule,
+    GoogleModule,
     ContactsModule,
   ],
   controllers: [AppController],
