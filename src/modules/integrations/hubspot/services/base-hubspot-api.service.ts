@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Client as HubspotApiClient } from '@hubspot/api-client';
-import configuration from '../../../config/configuration';
+import configuration from '../../../../config/configuration';
 
 @Injectable()
 export class BaseHubspotApiService {

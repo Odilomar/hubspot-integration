@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { ContactsHubspotApiService } from '../../hubspot/services';
+import { ContactsHubspotApiService } from '../../integrations/hubspot/services';
 import { CreateContactDto } from '../dtos';
 
 @Injectable()

@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { CreateContactUseCase, GetContactsUseCase } from './use-cases';
-import { HubspotModule } from '../hubspot/hubspot.module';
+import { HubspotModule } from '../integrations/hubspot/hubspot.module';
+import { GoogleModule } from '../integrations/google/google.module';
 import { ContactsController } from './controllers';
 import { CreateContactsInBatchUseCase } from './use-cases/create-contacts-in-batch.use-case';
-import { GoogleModule } from '../google/google.module';
 
 @Module({
   imports: [HubspotModule, GoogleModule],

@@ -5,7 +5,7 @@ import {
   CreateContactsInBatchApi,
   GetContactsApiQuery,
 } from './contacts.interface';
-import { Dict } from '../../../../shared';
+import { Dict } from '../../../../../shared';
 import { SimplePublicObjectInputForCreate } from '@hubspot/api-client/lib/codegen/crm/companies';
 
 @Injectable()

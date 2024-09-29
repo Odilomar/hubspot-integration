@@ -1,11 +1,10 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { HubspotModule } from './modules/hubspot/hubspot.module';
 import { ContactsModule } from './modules/contacts/contacts.module';
 import { ConfigModule } from '@nestjs/config';
 import configuration from './config/configuration';
-import { GoogleModule } from './modules/google/google.module';
+import { IntegrationsModule } from './modules/integrations/integrations.module';
 
 @Module({
   imports: [
@@ -13,8 +12,7 @@ import { GoogleModule } from './modules/google/google.module';
       isGlobal: true,
       load: [configuration],
     }),
-    HubspotModule,
-    GoogleModule,
+    IntegrationsModule,
     ContactsModule,
   ],
   controllers: [AppController],

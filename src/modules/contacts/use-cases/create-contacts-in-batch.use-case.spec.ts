@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { CreateContactsInBatchUseCase } from './create-contacts-in-batch.use-case';
 import { CreateContactDto } from '../dtos';
-import { ContactsHubspotApiService } from '../../hubspot/services';
+import { ContactsHubspotApiService } from '../../integrations/hubspot/services';
 
 describe('CreateContactsInBatchUseCase', () => {
   let service: CreateContactsInBatchUseCase;

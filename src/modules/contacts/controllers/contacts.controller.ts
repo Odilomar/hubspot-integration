@@ -13,7 +13,7 @@ import { ApiBody, ApiTags } from '@nestjs/swagger';
 import { CreateContactDto, GetContactsDto } from '../dtos';
 import { CreateContactsInBatchUseCase } from '../use-cases/create-contacts-in-batch.use-case';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { GoogleSheetsApiService } from '../../google/services';
+import { GoogleSheetsApiService } from '../../integrations/google/services';
 
 @ApiTags('Contacts')
 @Controller('contacts')

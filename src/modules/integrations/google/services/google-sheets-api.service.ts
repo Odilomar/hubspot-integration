@@ -1,7 +1,7 @@
 import { sheets_v4 } from '@googleapis/sheets';
 import { Injectable } from '@nestjs/common';
 import { google } from 'googleapis';
-import { Dict } from '../../../shared';
+import { Dict } from '../../../../shared';
 import { BaseGoogleApiService } from './base-google-api.service';
 
 @Injectable()
