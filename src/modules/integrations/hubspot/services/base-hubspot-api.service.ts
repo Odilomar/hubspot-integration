@@ -4,7 +4,7 @@ import configuration from '../../../../config/configuration';
 
 @Injectable()
 export class BaseHubspotApiService {
-  hubspotApiClient: HubspotApiClient;
+  protected hubspotApiClient: HubspotApiClient;
 
   constructor() {
     this.hubspotApiClient = new HubspotApiClient({
