@@ -20,7 +20,7 @@ Este projeto integra uma planilha do Google Sheets com o Hubspot para a publica�
  - Obtenha as credenciais do [Google Sheets API](https://medium.com/@sakkeerhussainp/google-sheet-as-your-database-for-node-js-backend-a79fc5a6edd9) e adicione o arquivo credentials.json no mesmo diretório do package.json. Já existe um credentails.example.json como referência.
   - Obtenha as credenciais do [Hubspot API](https://developers.hubspot.com/docs/api/developer-guides-resources) e adicione a API Key no arquivo .env do projeto. Já existe um arquivo .env.example como referência;
   - Configure as credenciais no arquivo de configuração do projeto.
-  - Exemplo do template da planilha em csv
+  - Exemplo do template da planilha em csv:
   ```
     company,firstname,lastname,email,phone,website
     Example Inc.,John,Doe,contact@example.com,(555) 555-5555,http://example.com
