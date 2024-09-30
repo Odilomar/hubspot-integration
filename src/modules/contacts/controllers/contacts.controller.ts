@@ -1,19 +1,9 @@
-import {
-  Body,
-  Controller,
-  Get,
-  Param,
-  Post,
-  Query,
-  UploadedFile,
-  UseInterceptors,
-} from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { CreateContactUseCase, GetContactsUseCase } from '../use-cases';
 import { ApiBody, ApiTags } from '@nestjs/swagger';
 import { CreateContactDto, GetContactsDto } from '../dtos';
 import { CreateContactsInBatchUseCase } from '../use-cases/create-contacts-in-batch.use-case';
-import { FileInterceptor } from '@nestjs/platform-express';
-import { GoogleSheetsApiService } from '../../integrations/google/services';
+import { CreateContactsInBatchBySpreadsheetIdUseCase } from '../use-cases/create-contacts-in-batch-by-spreadsheet-id.use-case';
 
 @ApiTags('Contacts')
 @Controller('contacts')
@@ -22,13 +12,8 @@ export class ContactsController {
     private readonly getContactsUseCase: GetContactsUseCase,
     private readonly createContactUseCase: CreateContactUseCase,
     private readonly createContactsInBatchUseCase: CreateContactsInBatchUseCase,
-    private readonly googleSheetsApiService: GoogleSheetsApiService,
+    private readonly createContactsInBatchBySpreadsheetIdUseCase: CreateContactsInBatchBySpreadsheetIdUseCase,
   ) {}
-
-  @Get('/:id')
-  getContactsById(@Param('id') id: string) {
-    return this.googleSheetsApiService.getSpreadsheetValuesById(id);
-  }
 
   @Get('/')
   getContacts(@Query() query: GetContactsDto) {
@@ -46,12 +31,12 @@ export class ContactsController {
     return this.createContactsInBatchUseCase.execute(body);
   }
 
-  @Post('/batch/upload')
-  @UseInterceptors(FileInterceptor('file'))
-  uploadGoogleSheet(@UploadedFile() file: Express.Multer.File) {
-    // Implement the logic to handle the uploaded file
-    // return this.handleGoogleSheetUpload(file);
-
-    console.log({ file });
+  @Post('/batch/:spreadsheetId')
+  createContactsInBatchBySpreadsheetId(
+    @Param('spreadsheetId') spreadsheetId: string,
+  ) {
+    return this.createContactsInBatchBySpreadsheetIdUseCase.execute(
+      spreadsheetId,
+    );
   }
 }
