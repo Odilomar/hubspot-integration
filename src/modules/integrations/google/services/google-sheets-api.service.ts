@@ -1,7 +1,6 @@
 import { sheets_v4 } from '@googleapis/sheets';
 import { Injectable } from '@nestjs/common';
 import { google } from 'googleapis';
-import { Dict } from '../../../../shared';
 import { BaseGoogleApiService } from './base-google-api.service';
 
 @Injectable()
@@ -40,13 +39,13 @@ export class GoogleSheetsApiService extends BaseGoogleApiService {
     });
   }
 
-  async getSpreadsheetValuesById(spreadsheetId: string) {
+  async getSpreadsheetValuesById<T>(spreadsheetId: string): Promise<T[]> {
     const res = await this.getSpreadsheetDetailsById(spreadsheetId);
 
     const values: Array<string[]> = res.data.values || [];
 
     if (!values.length) {
-      return {};
+      return [];
     }
 
     const columns = values.shift();
@@ -55,7 +54,7 @@ export class GoogleSheetsApiService extends BaseGoogleApiService {
       row.reduce((acc, cell, index) => {
         acc[columns[index]] = cell;
         return acc;
-      }, {} as Dict<string>),
+      }, {} as T),
     );
   }
 }
